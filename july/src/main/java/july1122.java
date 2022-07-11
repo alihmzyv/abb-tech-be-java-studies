@@ -31,9 +31,16 @@ public class july1122 {
         B B1 = new B(A1, 2);
         B B2 = new B(A2, 2);
         System.out.println(B1.equals(B2));*/
+/*
+        B b1 = new B(1, 0);
+        System.out.println(b1.hashCode());*/
 
-        A a1 = new B(1, 2);
-        a1.methodOverriden();
+        A A1 = new A(2, 2);
+        A A2 = new A(2, 2);
+        System.out.println(A1.equals(A2));
+        System.out.println(A1.hashCode());
+        System.out.println(A2.hashCode());
+
     }
 }
 
@@ -232,6 +239,7 @@ class B implements Cloneable {
         return Objects.hash(getA1(), getB());
     }
 }*/
+/*
 
 class A {
     private int a;
@@ -253,7 +261,56 @@ class B extends A {
         this.b = b;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        B b1 = (B) o;
+        return b == b1.b;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(b);
+    }
+
     public void methodOverriden() {
         System.out.println("Class B");
     }
+}*/
+
+
+
+class A {
+    private int a;
+    private int b;
+
+    A(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+    public int getA() {
+        return a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        A a1 = (A) o;
+        return getA() == a1.getA() && getB() == a1.getB();
+    }
+
 }

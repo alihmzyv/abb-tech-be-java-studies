@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 
-public class july722 {
+public class july1022 {
     public static void main(String[] args) throws CloneNotSupportedException {
 
 //        Object class methods extended
