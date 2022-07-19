@@ -8,10 +8,25 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 import java.util.spi.CalendarNameProvider;
 
 public class HackerRank {
     public static void main(String[] args) throws IOException {
+
+        /*Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String B=sc.next();
+        System.out.println(A.length() + B.length());
+        System.out.println(A.compareTo(B)>0 ? "Yes" : "No");
+        System.out.printf("%s %s\n", A.substring(0,1).toUpperCase() + A.substring(1), B.substring(0,1).toUpperCase() + B.substring(1));
+        *//* Enter your code here. Print output to STDOUT. */
+
+        /*Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+        System.out.println(S.substring(start, end));*/
 
 //        Scanner scan = new Scanner(System.in);
 //        int i = scan.nextInt();
@@ -95,7 +110,39 @@ public class HackerRank {
             n++;
         }*/
 
-        System.out.println(findDay(8, 5, 2015));
+        /*System.out.println(findDay(8, 5, 2015));*/
+
+//        Scanner sc=new Scanner(System.in);
+//        String A=sc.next();
+//        StringBuilder sb = new StringBuilder();
+//
+//        for (int i = A.length()-1; i>=0; i--) {
+//            sb.append(A.charAt(i));
+//        }
+//
+//        System.out.println(sb.toString().equals(A) ? "Yes" : "No");
+        /* Enter your code here. Print output to STDOUT. */
+
+//        Scanner scan = new Scanner(System.in);
+//        String s = scan.nextLine();
+//        scan.close();
+//        StringBuilder sb = new StringBuilder();
+//        boolean addedNewLine = true;
+//        int count = 0;
+//
+//        for (int i = 0; i < s.length(); i++) {
+//            if (Pattern.matches("[a-zA-Z]", String.valueOf(s.charAt(i)))) {
+//                sb.append(s.charAt(i));
+//                addedNewLine = false;
+//            }
+//            else if(!addedNewLine) {
+//                sb.append("\n");
+//                count++;
+//                addedNewLine = true;
+//            }
+//        }
+//
+//        System.out.println(count+"\n"+sb.toString().trim());
     }
 
     public static String getQuerie(int a, int b, int n) {
@@ -135,6 +182,57 @@ public class HackerRank {
         }
 
         return days[clndr.get(Calendar.DAY_OF_WEEK)-1];
+    }
+
+    public static String getSmallestAndLargest(String s, int k) {
+        String smallest = s.substring(0, k);
+        String largest = s.substring(0,k);
+
+        for (int i = 1; i < s.length()-k+1; i++) {
+            if (s.substring(i, i+k).compareTo(smallest) < 0) {
+                smallest = s.substring(i, i+k);
+            }
+            if (s.substring(i, i+k).compareTo(largest) > 0) {
+                largest = s.substring(i, i+k);
+            }
+        }
+
+        return smallest + "\n" + largest;
+    }
+
+    static boolean isAnagram(String a, String b) {
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        int countA = 0;
+        int countB = 0;
+        char ch = (char) (-1);
+        boolean isAnagram = true;
+        String sample = a.length() > b.length() ? a : b;
+
+        for (int i = 0; i < sample.length(); i++) {
+            ch = sample.charAt(i);
+
+            //count ch in A
+            for (int j = 0; j < a.length(); j++) {
+                if (a.charAt(j) == ch) countA++;
+            }
+
+            //count ch in B
+            for (int j = 0; j < b.length(); j++) {
+                if(b.charAt(j) == ch) countB++;
+            }
+
+            if (countA != countB) {
+                isAnagram = false;
+                break;
+            }
+            else {
+                countA = 0;
+                countB = 0;
+            }
+        }
+
+        return isAnagram;
     }
 
 }
