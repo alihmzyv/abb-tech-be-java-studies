@@ -4,9 +4,9 @@ import java.util.Locale;
 
 public class iyul1322 {
     public static void main(String[] args) {
-        X x1 = new X();
+        /*X x1 = new X();
         System.out.println(x1.yOfX);
-        /*Point originOne = new Point(23, 94);
+        Point originOne = new Point(23, 94);
         Rectangle rectOne = new Rectangle(originOne, 100, 200);
         Rectangle rectTwo = new Rectangle(50, 100);
 
@@ -29,6 +29,7 @@ public class iyul1322 {
         //printing info about the objects*/
     }
 }
+/*
 
 class X {
     String name;
@@ -93,3 +94,4 @@ class Rectangle {
 }
 
 
+*/
