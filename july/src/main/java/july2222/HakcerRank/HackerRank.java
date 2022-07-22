@@ -1,4 +1,4 @@
-package july2222;
+package july2222.HakcerRank;
 
 import java.util.ArrayList;
 import java.util.Arrays;

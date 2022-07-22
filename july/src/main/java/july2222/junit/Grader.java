@@ -1,4 +1,4 @@
-package july2222;
+package july2222.junit;
 
 public class Grader {
 

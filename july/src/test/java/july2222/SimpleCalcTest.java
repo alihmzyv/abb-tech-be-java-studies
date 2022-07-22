@@ -1,5 +1,6 @@
 package july2222;
 
+import july2222.junit.SimpleCalc;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

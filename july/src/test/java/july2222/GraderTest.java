@@ -1,6 +1,6 @@
 package july2222;
 
-import com.sun.nio.sctp.IllegalReceiveException;
+import july2222.junit.Grader;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
