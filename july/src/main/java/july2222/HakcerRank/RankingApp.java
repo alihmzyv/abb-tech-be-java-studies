@@ -1,5 +1,6 @@
 package july2222.HakcerRank;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -10,14 +11,19 @@ public class RankingApp {
     //Algorithms preparation
 
     public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
-        int[] rankings = new int[ranked.toArray().length];
-        int[] playerRankings = new int[player.toArray().length];
-
+        int[] rankings = new int[ranked.size()];
+        int[] playerRankings = new int[player.size()];
+        int[] rankedArr = ranked.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
+        int[] playerArr = player.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
 
         //give rankings according to scoreboard
         int lastRank = 1;
-        for (int i = 0; i < ranked.toArray().length; i++) {
-            if (i == 0 || ranked.get(i).equals(ranked.get(i-1))) {
+        for (int i = 0; i < rankedArr.length; i++) {
+            if (i == 0 || rankedArr[i] == rankedArr[i-1]) {
                 rankings[i] = lastRank;
             }
             else {
@@ -26,13 +32,13 @@ public class RankingApp {
         }
 
         //give rankings according to each score of player
-        for (int i = 0; i < player.toArray().length; i++) {
-            if (i!=0 && player.get(i).equals(player.get(i-1))) {
+        for (int i = 0; i < playerArr.length; i++) {
+            if (i!=0 && playerArr[i] == playerArr[i-1]) {
                 playerRankings[i] = playerRankings[i-1];
                 continue;
             }
-            for (int j = 0; j < ranked.toArray().length; j++) {
-                if (player.get(i) >= ranked.get(j)) {
+            for (int j = 0; j < rankedArr.length; j++) {
+                if (playerArr[i] >= rankedArr[j]) {
                     playerRankings[i] = rankings[j];
                     break;
                 }
@@ -43,7 +49,7 @@ public class RankingApp {
             }
         }
 
-        return IntStream.of(playerRankings).boxed().collect(Collectors.toList());
+        return Arrays.stream(playerRankings).boxed().collect(Collectors.toList());
     }
 
 }
