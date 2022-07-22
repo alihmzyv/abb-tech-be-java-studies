@@ -1,3 +1,5 @@
+package july1022;
+
 import java.util.Arrays;
 
 
@@ -11,14 +13,14 @@ public class july1022 {
 
 
         //hashCode()
-//        Doggy dog2 = dog1;
+//        july1022.Doggy dog2 = dog1;
 //        System.out.println(dog1.equals(dog2));
 //        System.out.println(dog1.hashCode()+", "+dog2.hashCode());
 
         //equals()
 //        dog1 = null;
 //        System.out.println(dog1.equals(dog1));
-//        Doggy dog2 = dog1;
+//        july1022.Doggy dog2 = dog1;
 //        dog2.setAge(2);
 //        System.out.println(dog1.equals(dog2));
 
@@ -27,7 +29,7 @@ public class july1022 {
 //        System.out.println(str1.equals(str2));
 
         // .clone()
-//        Doggy dog2 = dog1.doggyClone();
+//        july1022.Doggy dog2 = dog1.doggyClone();
 //        System.out.println("Dog1: "+dog1.toString());
 //        System.out.println("Dog2: "+dog2.toString());
 //        dog1.changeArr(5);

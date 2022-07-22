@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Objects;
+package july1122;
 
 public class july1122 {
     public static void main(String[] args) {
@@ -26,8 +25,8 @@ public class july1122 {
         System.out.println("child1 hash code: "+child1.hashCode());
         System.out.println("child2 hashcode: "+child2.hashCode());*/
 
-        /*A A1 = new A(1, 2);
-        A A2 = new A(1, 2);
+        /*july1122.A A1 = new july1122.A(1, 2);
+        july1122.A A2 = new july1122.A(1, 2);
         B B1 = new B(A1, 2);
         B B2 = new B(A2, 2);
         System.out.println(B1.equals(B2));*/
@@ -162,11 +161,11 @@ class Children extends Person{
 }*/
 
 /*
-class A {
+class july1122.A {
     int a;
     int b;
 
-    A(int a, int b) {
+    july1122.A(int a, int b) {
         this.a = a;
         this.b = b;
     }
@@ -191,7 +190,7 @@ class A {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        A a1 = (A) o;
+        july1122.A a1 = (july1122.A) o;
         return getA() == a1.getA() && getB() == a1.getB();
     }
 
@@ -202,14 +201,14 @@ class A {
 }
 
 class B implements Cloneable {
-    private A A1;
+    private july1122.A A1;
     private int b;
 
-    public A getA1() {
+    public july1122.A getA1() {
         return A1;
     }
 
-    public void setA1(A a1) {
+    public void setA1(july1122.A a1) {
         A1 = a1;
     }
 
@@ -221,7 +220,7 @@ class B implements Cloneable {
         this.b = b;
     }
 
-    public B(A a1, int b) {
+    public B(july1122.A a1, int b) {
         A1 = a1;
         this.b = b;
     }
@@ -241,19 +240,19 @@ class B implements Cloneable {
 }*/
 /*
 
-class A {
+class july1122.A {
     private int a;
 
-    A(int a) {
+    july1122.A(int a) {
         this.a = a;
     }
 
     public void methodOverriden() {
-        System.out.println("Class A");
+        System.out.println("Class july1122.A");
     }
 }
 
-class B extends A {
+class B extends july1122.A {
     private int b;
 
     B(int a, int b) {
