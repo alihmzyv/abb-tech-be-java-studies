@@ -6,9 +6,10 @@ import java.util.List;
 public class CircularArrayRotation {
     public static List<Integer> circularArrayRotation(List<Integer> a, int k, List<Integer> queries) {
         int[] arr = rotateArrayRight(a.stream().mapToInt(i->i).toArray(), k);
-        Integer[] result = new Integer[queries.toArray().length];
+        int queriesLength = queries.toArray().length;
+        Integer[] result = new Integer[queriesLength];
 
-        for (int i = 0; i < queries.toArray().length; i++) {
+        for (int i = 0; i < queriesLength; i++) {
             result[i] = arr[queries.get(i)];
         }
 
@@ -18,7 +19,7 @@ public class CircularArrayRotation {
     public static int[] rotateArrayRight(int[] arr, int k) {
         int temp;
 
-        for (int j = 0; j < k; j++) {
+        while(k > 0){
             temp = arr[arr.length - 1];
 
             for (int i = arr.length - 1; i >0; i--) {
@@ -26,6 +27,7 @@ public class CircularArrayRotation {
             }
 
             arr[0] = temp;
+            k--;
         }
 
         return arr;
