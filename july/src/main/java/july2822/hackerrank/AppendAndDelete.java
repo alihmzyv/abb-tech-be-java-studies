@@ -31,7 +31,7 @@ public class AppendAndDelete {
                 }
             }
         }
-        else {
+        else if (countMinOperations == k) {
             can = true;
         }
 
