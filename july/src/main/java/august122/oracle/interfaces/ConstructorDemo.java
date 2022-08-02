@@ -1,4 +1,4 @@
-package august122.oracle_classes_and_objects;
+package august122.oracle.interfaces;
 
 //public class ConstructorDemo {
 //    public static void main(String[] args) {

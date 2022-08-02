@@ -1,7 +1,6 @@
-package august122.oracle_classes_and_objects.interfaces;
+package august122.oracle.interfaces;
 import java.time.*;
 import java.lang.*;
-import java.util.*;
 
 public class DefaultMethodsDemo implements CharSequence{
 

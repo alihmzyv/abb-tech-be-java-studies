@@ -1,5 +1,4 @@
 package august122.danitBasic7;
-import august122.oracle_classes_and_objects.*;
 
 //public class AbstractDemo implements Interfaces {
 //    public void greet(int a) {
