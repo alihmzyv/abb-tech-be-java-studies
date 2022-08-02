@@ -1,6 +1,4 @@
-package august222.danit;
-import java.io.IOException;
-import java.nio.file.DirectoryIteratorException;
+package august222.danit.overriding;
 
 public class AllAboutOverridingDemo {
 
