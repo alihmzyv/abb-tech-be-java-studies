@@ -1,9 +1,6 @@
 package august122.leetcode;
 
-import java.util.EmptyStackException;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class ValidParentheses20 {
     public boolean isValid(String s) {
