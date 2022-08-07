@@ -19,21 +19,18 @@ public class ValidParentheses20 {
                 brackets.push(s.charAt(i));
             }
             if (closedBrackets.contains(String.valueOf(ch))) {
-                Character lastBracket;
-                try {
-                    lastBracket = brackets.peek();
-                }
-                catch (EmptyStackException exc) { //closed bracket cannot come if no corresponding open bracket is found
-                    brackets.push(ch); //so the stack will not be empty
+                if (brackets.isEmpty()) {
+                    brackets.push(ch); //so the stack is not empty, false will be returned
                     break;
                 }
 
+                Character lastBracket = brackets.peek();
                 int indexOfClosedBracket = closedBrackets.indexOf(ch);
                 Character correspondingOpenBracket = openBrackets.charAt(indexOfClosedBracket);
                 if (lastBracket == correspondingOpenBracket) {
                     brackets.pop();
                 }
-                else {
+                else { //not valid parantheses
                     break;
                 }
             }
