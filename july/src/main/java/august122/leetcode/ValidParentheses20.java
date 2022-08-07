@@ -7,39 +7,40 @@ import java.util.Stack;
 
 public class ValidParentheses20 {
     public boolean isValid(String s) {
-        boolean result = true;
 
         Stack<Character> brackets = new Stack<>();
-        String closedBrackets = "([{";
-        String openBrackets = ")]}";
+        String openBrackets = "([{";
+        String closedBrackets = ")]}";
 
         for (int i = 0; i < s.length(); i++) {
-            String ch = s.substring(i, i + 1); //used substring so can be used with String.substring
+            Character ch = s.charAt(i);
 
-            if (openBrackets.contains(ch)) {
+            if (openBrackets.contains(String.valueOf(ch))) {
                 brackets.push(s.charAt(i));
             }
-            if (closedBrackets.contains(ch)) {
+            if (closedBrackets.contains(String.valueOf(ch))) {
                 Character lastBracket;
                 try {
                     lastBracket = brackets.peek();
                 }
-                catch (EmptyStackException exc) { //closed bracket cannot come first
-                    result = false;
+                catch (EmptyStackException exc) { //closed bracket cannot come if no corresponding open bracket is found
+                    brackets.push(ch); //so the stack will not be empty
                     break;
                 }
-                int indexOfClosedBracket = closedBrackets.indexOf(s.charAt(i));
+
+                int indexOfClosedBracket = closedBrackets.indexOf(ch);
                 Character correspondingOpenBracket = openBrackets.charAt(indexOfClosedBracket);
                 if (lastBracket == correspondingOpenBracket) {
                     brackets.pop();
                 }
                 else {
-                    result = false;
                     break;
                 }
             }
         }
 
-        return result && brackets.isEmpty();
+        boolean result = brackets.isEmpty();
+
+        return result;
     }
 }
