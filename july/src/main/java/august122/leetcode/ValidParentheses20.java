@@ -22,12 +22,10 @@ public class ValidParentheses20 {
                 }
 
                 Character lastBracket = brackets.peek();
-                if (bracketCorresponds(ch, lastBracket)) {
-                    brackets.pop();
+                if (!bracketCorresponds(ch, lastBracket)) {
+                    return false;
                 }
-                else { //not valid parantheses
-                    break;
-                }
+                brackets.pop();
             }
         }
 
