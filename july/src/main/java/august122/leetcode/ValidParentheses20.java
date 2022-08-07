@@ -16,7 +16,7 @@ public class ValidParentheses20 {
             Character ch = s.charAt(i);
 
             if (openBrackets.contains(String.valueOf(ch))) {
-                brackets.push(s.charAt(i));
+                brackets.push(ch);
             }
             if (closedBrackets.contains(String.valueOf(ch))) {
                 if (brackets.isEmpty()) {
