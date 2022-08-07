@@ -1,40 +1,45 @@
 package august122.leetcode;
 
+import java.util.EmptyStackException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class ValidParentheses20 {
     public boolean isValid(String s) {
-        StringBuilder stack = new StringBuilder(); //must be empty in the end
-        String openBrackets = "({[";
-        String closeBrackets = ")}]";
-        char bracket;
-        char previousBracket;
-        int positionOfClosedBracket; //0 = (), 1 = {}, 2 = []
+        boolean result = true;
+
+        Stack<Character> brackets = new Stack<>();
+        String closedBrackets = "([{";
+        String openBrackets = ")]}";
 
         for (int i = 0; i < s.length(); i++) {
-            bracket = s.charAt(i);
+            String ch = s.substring(i, i + 1); //used substring so can be used with String.substring
 
-            //if bracket is open: add to the stack, to be removed by corresponding closing bracket
-            //if bracket is closed: check if the previous one is corresponding opening bracket:
-            //if yes, delete opening bracket, continue
-            //if not, invalid parantheses, return false
-            if (openBrackets.indexOf(bracket) != -1) { //bracket is open
-                stack.append(s.charAt(i));
+            if (openBrackets.contains(ch)) {
+                brackets.push(s.charAt(i));
             }
-            else if (stack.length() != 0) { //bracket is closed and there is possibility that the previous one is matching
-                previousBracket = stack.charAt(stack.length() - 1);
-                positionOfClosedBracket = closeBrackets.indexOf(s.charAt(i));
-
-                if (previousBracket == openBrackets.charAt(positionOfClosedBracket)) {//previous bracket is corresponding open bracket
-                    stack.deleteCharAt(stack.length() - 1);
+            if (closedBrackets.contains(ch)) {
+                Character lastBracket;
+                try {
+                    lastBracket = brackets.peek();
+                }
+                catch (EmptyStackException exc) { //closed bracket cannot come first
+                    result = false;
+                    break;
+                }
+                int indexOfClosedBracket = closedBrackets.indexOf(s.charAt(i));
+                Character correspondingOpenBracket = openBrackets.charAt(indexOfClosedBracket);
+                if (lastBracket == correspondingOpenBracket) {
+                    brackets.pop();
                 }
                 else {
-                    return false;
+                    result = false;
+                    break;
                 }
-            }
-            else {//String bracket is closed, the length is zero, invalidity of parantheses
-                return false;
             }
         }
 
-        return stack.isEmpty(); //stack emptiness assures the correct matches were found (no open brackets left)
+        return result && brackets.isEmpty();
     }
 }
