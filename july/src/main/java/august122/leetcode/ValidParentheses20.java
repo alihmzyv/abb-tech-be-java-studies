@@ -9,25 +9,20 @@ public class ValidParentheses20 {
     public boolean isValid(String s) {
 
         Stack<Character> brackets = new Stack<>();
-        String openBrackets = "([{<";
-        String closedBrackets = ")]}>";
 
         for (int i = 0; i < s.length(); i++) {
-            Character ch = s.charAt(i);
+            char ch = s.charAt(i);
 
-            if (openBrackets.contains(String.valueOf(ch))) {
+            if (bracketIsOpen(ch)) {
                 brackets.push(ch);
             }
-            if (closedBrackets.contains(String.valueOf(ch))) {
-                if (brackets.isEmpty()) {
-                    brackets.push(ch); //so the stack is not empty, false will be returned
-                    break;
+            if (bracketIsClose(ch)) {
+                if (brackets.isEmpty()) { //closed bracket cannot come first
+                    return false;
                 }
 
                 Character lastBracket = brackets.peek();
-                int indexOfClosedBracket = closedBrackets.indexOf(ch);
-                Character correspondingOpenBracket = openBrackets.charAt(indexOfClosedBracket);
-                if (lastBracket == correspondingOpenBracket) {
+                if (bracketCorresponds(ch, lastBracket)) {
                     brackets.pop();
                 }
                 else { //not valid parantheses
@@ -39,5 +34,22 @@ public class ValidParentheses20 {
         boolean result = brackets.isEmpty();
 
         return result;
+    }
+
+    public static boolean bracketCorresponds(char closed, char open) {
+        String openBrackets = "([{<";
+        String closedBrackets = ")]}>";
+
+        return closedBrackets.indexOf(closed) == openBrackets.indexOf(open);
+    }
+
+    public static boolean bracketIsOpen(char bracket) {
+        String openBrackets = "([{<";
+        return openBrackets.contains(String.valueOf(bracket));
+    }
+
+    public static boolean bracketIsClose(char bracket) {
+        String closedBrackets = ")]}>";
+        return closedBrackets.contains(String.valueOf(bracket));
     }
 }
