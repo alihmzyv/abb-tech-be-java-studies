@@ -9,8 +9,8 @@ public class ValidParentheses20 {
     public boolean isValid(String s) {
 
         Stack<Character> brackets = new Stack<>();
-        String openBrackets = "([{";
-        String closedBrackets = ")]}";
+        String openBrackets = "([{<";
+        String closedBrackets = ")]}>";
 
         for (int i = 0; i < s.length(); i++) {
             Character ch = s.charAt(i);
