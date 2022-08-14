@@ -7,11 +7,11 @@ public class Outer {
      class Inner {
 
         int x = 2;
-        public void m1() {
+        public static void m1() {
             int x = 3;
             System.out.println(x);
-            System.out.println(this.x);
-            System.out.println(Outer.this.x);
+//            System.out.println(this.x);
+//            System.out.println(Outer.this.x);
         }
 
         public void m2() {
