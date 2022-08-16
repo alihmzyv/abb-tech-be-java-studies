@@ -8,8 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="july" />
+        <module name="leetcode" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.4" />
+    <bytecodeTargetLevel target="18">
+      <module name="august" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>
