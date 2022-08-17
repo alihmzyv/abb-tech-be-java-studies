@@ -72,6 +72,17 @@ public class StreamsDemo {
         //convert Integer[] to int[]
         int[] arr2 = Arrays.stream(arrBig).mapToInt(Integer::intValue).toArray();
         int[] arr3 = Stream.of(arrBig).mapToInt(Integer::intValue).toArray();
+
+        //Stream.generate
+        //create 10 random numbers between 1 and 10
+        int[] randomNums = IntStream.generate(() -> new Random().nextInt(10)).limit(10).toArray();
+        Arrays.stream(randomNums).forEach(System.out::println);
+
+        //create array of even integer till 10
+        int[] evenNums = IntStream.iterate(2, index -> index <= 10, index -> ++index).toArray();
+        Arrays.stream(evenNums).forEach(x -> System.out.print(x + " "));
+
+
     }
 }
 

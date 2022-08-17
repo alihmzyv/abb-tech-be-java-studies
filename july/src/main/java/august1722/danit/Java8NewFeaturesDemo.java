@@ -68,6 +68,7 @@ public class Java8NewFeaturesDemo {
         Map<String, Integer> stringsLengthsMap = stringList.stream().collect(Collectors.toMap(Function.identity(), String::length,
                 (s, i) -> i + i, TreeMap::new)); //Ali = 3, Four = 4, Three = 10;
         System.out.println(stringsLengthsMap);
+        stringList.stream().collect(Collectors.toList());
     }
 }
 
