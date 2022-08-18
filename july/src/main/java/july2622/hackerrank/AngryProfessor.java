@@ -4,20 +4,11 @@ import java.util.List;
 
 public class AngryProfessor {
     public static String angryProfessor(int k, List<Integer> a) {
-        int[] arrivalTimes = a.stream().mapToInt(i->i).toArray();
-        int countStudentsNotLate = 0;
-        String continuation = "YES";
+        long lateStudents = a.stream()
+                .filter(time -> time > 0)
+                .limit(k)
+                .count();
 
-        for (int time: arrivalTimes) {
-            if (time <= 0) {
-                countStudentsNotLate++;
-            }
-
-            if (countStudentsNotLate >= k) {
-                continuation = "NO";
-                break;
-            }
-        }
-        return continuation;
+        return lateStudents == k ? "NO" : "YES";
     }
 }

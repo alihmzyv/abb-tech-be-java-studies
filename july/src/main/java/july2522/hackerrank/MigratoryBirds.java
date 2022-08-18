@@ -1,6 +1,8 @@
 package july2522.hackerrank;
 
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class MigratoryBirds {
@@ -8,35 +10,16 @@ public class MigratoryBirds {
 
     }
     public static int migratoryBirds(List<Integer> arr) {
-        // Write your code here
-        int[] birdsIDs = arr.stream().mapToInt(i->i).toArray();
-        int[] birdsIDsNoDublicates = IntStream.of(birdsIDs).distinct().toArray();
-
-
-        int maxOccuringID = 0;
-        int occurencyOfMaxOccuringID = 0;
-
-
-        int countOccurencies;
-        for (int i = 0; i < birdsIDsNoDublicates.length; i++) {
-            countOccurencies = 0;
-            for (int j = 0; j < birdsIDs.length; j++) {
-                if (birdsIDsNoDublicates[i] == birdsIDs[j]) {
-                    countOccurencies++;
-                }
+        Map<Integer, Long> integerCountMap = arr.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        int mostFrequentID = integerCountMap.entrySet().stream().max((entry1, entry2) -> {
+            long flag = entry1.getValue() - entry2.getValue();
+            if (flag == 0) {
+                flag = -entry1.getKey().compareTo(entry2.getKey());
             }
+            return (int) flag;
+        }).get().getKey();
 
-            if (countOccurencies > occurencyOfMaxOccuringID) {
-                occurencyOfMaxOccuringID = countOccurencies;
-                maxOccuringID = birdsIDsNoDublicates[i];
-            }
-            else if(countOccurencies == occurencyOfMaxOccuringID) {
-                if (birdsIDsNoDublicates[i] < maxOccuringID) {
-                    maxOccuringID = birdsIDsNoDublicates[i];
-                }
-            }
-        }
-
-        return maxOccuringID;
+        return mostFrequentID;
     }
 }
