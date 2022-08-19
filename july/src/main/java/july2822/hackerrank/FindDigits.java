@@ -2,6 +2,7 @@ package july2822.hackerrank;
 
 public class FindDigits {
     public static int findDigits(int n) {
+        //digit is positive always by constraints declared
         int count = 0;
         int tempN = n;
         int digit;
