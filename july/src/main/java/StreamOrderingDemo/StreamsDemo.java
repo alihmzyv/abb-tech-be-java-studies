@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamsDemo {
     public static void main(String[] args) {
@@ -16,6 +18,5 @@ public class StreamsDemo {
 //        //find the first word starting with d, case-insensitive
 //        String first = stringList.stream().filter(s -> s.charAt(0) == 'd' || s.charAt(0) == 'D').findFirst().orElse("None found");
 //        System.out.println(first);
-
     }
 }
