@@ -11,6 +11,7 @@
     <modules>
         <module>july</module>
         <module>leetcode</module>
+        <module>august</module>
     </modules>
 
     <dependencies>

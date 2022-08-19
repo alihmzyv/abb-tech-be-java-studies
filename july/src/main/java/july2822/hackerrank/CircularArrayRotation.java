@@ -2,34 +2,15 @@ package july2822.hackerrank;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class CircularArrayRotation {
     public static List<Integer> circularArrayRotation(List<Integer> a, int k, List<Integer> queries) {
-        int[] arr = rotateArrayRight(a.stream().mapToInt(i->i).toArray(), k);
-        int queriesLength = queries.toArray().length;
-        Integer[] result = new Integer[queriesLength];
-
-        for (int i = 0; i < queriesLength; i++) {
-            result[i] = arr[queries.get(i)];
-        }
-
-        return Arrays.asList(result);
-    }
-
-    public static int[] rotateArrayRight(int[] arr, int k) {
-        int temp;
-
-        while(k > 0){
-            temp = arr[arr.length - 1];
-
-            for (int i = arr.length - 1; i >0; i--) {
-                arr[i] = arr[i-1];
-            }
-
-            arr[0] = temp;
-            k--;
-        }
-
-        return arr;
+        IntStream.range(0, k)
+                .forEach(i -> a.add(0, a.remove(a.size() - 1)));
+        return queries.stream()
+                .map(a::get)
+                .collect(Collectors.toList());
     }
 }

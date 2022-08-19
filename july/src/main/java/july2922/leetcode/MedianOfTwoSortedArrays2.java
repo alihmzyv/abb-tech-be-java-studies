@@ -1,24 +1,21 @@
 package july2922.leetcode;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class MedianOfTwoSortedArrays2 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        double median; //return
-        int[] mergedArray = new int[nums1.length + nums2.length]; //merged array
-
-        //merge arrays
-        System.arraycopy(nums1, 0, mergedArray, 0, nums1.length);
-        System.arraycopy(nums2, 0, mergedArray, nums1.length, nums2.length);
-
-
-        Arrays.sort(mergedArray); //sort merged array
-
-        if (mergedArray.length % 2 != 0) {
-            median = mergedArray[(mergedArray.length - 1) / 2];
+        List<Integer> joined = new ArrayList<>();
+        joined.addAll(Arrays.stream(nums1).boxed().toList());
+        joined.addAll(Arrays.stream(nums2).boxed().toList());
+        Collections.sort(joined);
+        double median;
+        int size = joined.size();
+        if (size % 2 != 0) {
+            median = joined.get(size / 2);
         }
         else {
-            median = (double) (mergedArray[mergedArray.length / 2] + mergedArray[(mergedArray.length / 2) - 1]) / 2;
+            median = (double) (joined.get(size / 2) + joined.get(size / 2 - 1)) / 2;
         }
 
         return median;

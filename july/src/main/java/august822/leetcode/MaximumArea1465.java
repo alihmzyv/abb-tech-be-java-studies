@@ -1,33 +1,32 @@
 package august822.leetcode;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class MaximumArea1465 {
     public int maxArea(int h, int w, int[] horizontalCuts, int[] verticalCuts) {
-        long maxHorizontalDistanceBetweenCuts = getMaxDistanceBetweenCuts(horizontalCuts, h);
-        long maxVerticalDistanceBetweenCuts = getMaxDistanceBetweenCuts(verticalCuts, w);
+        Arrays.sort(horizontalCuts);
+        Arrays.sort(verticalCuts);
+        long maxHeight = IntStream.rangeClosed(0, horizontalCuts.length)
+                .map(i -> {
+                    if (i == 0) return horizontalCuts[i];
+                    else if (i == horizontalCuts.length) return h - horizontalCuts[i - 1];
+                    return horizontalCuts[i] - horizontalCuts[i - 1];
+                })
+                .max().getAsInt();
 
-        return (int) ((maxHorizontalDistanceBetweenCuts * maxVerticalDistanceBetweenCuts) % (int) (Math.pow(10, 9) + 7));
-    }
+        long maxWidth = IntStream.rangeClosed(0, verticalCuts.length)
+                .map(i -> {
+                    if (i == 0) return verticalCuts[i];
+                    else if (i == verticalCuts.length) return w - verticalCuts[i - 1];
+                    return verticalCuts[i] - verticalCuts[i - 1];
+                })
+                .max().getAsInt();
 
-    public int getMaxDistanceBetweenCuts(int[] cuts, int sideSize) {
-        Arrays.sort(cuts);
-        SortedSet<Integer> distancesBetweenCuts = new TreeSet<>();
-
-        for (int i = 0; i <= cuts.length; i++) {
-            if (i == 0) {
-                distancesBetweenCuts.add(cuts[i]); //distance between 0 and first cut
-            }
-            else if (i == cuts.length) {
-                distancesBetweenCuts.add(sideSize - cuts[i - 1]); //distance between the last cut and sideSize (h or w)
-            }
-            else {
-                distancesBetweenCuts.add(cuts[i] - cuts[i - 1]);
-            }
-        }
-
-        return distancesBetweenCuts.last();
+        return (int) (maxWidth * maxHeight % (int) (Math.pow(10, 9) + 7));
     }
 }
