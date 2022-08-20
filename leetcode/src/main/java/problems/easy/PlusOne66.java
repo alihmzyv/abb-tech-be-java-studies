@@ -1,6 +1,7 @@
 package problems.easy;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class PlusOne66 {
     public int[] plusOne(int[] digits) {
