@@ -8,14 +8,9 @@ import java.util.stream.IntStream;
 
 public class RemoveElement27 {
     public int removeElement(int[] nums, int val) {
-        List<Integer> numsList = Arrays.stream(nums).boxed().sorted().collect(Collectors.toList());
-        Arrays.sort(nums);
-        int firstIndex = numsList.indexOf(val);
-        if (firstIndex == -1) {
-            return nums.length;
-        }
-        int lastIndex = numsList.lastIndexOf(val);
-        System.arraycopy(nums, lastIndex + 1, nums, firstIndex, nums.length - lastIndex - 1);
-        return nums.length - (lastIndex - firstIndex + 1);
+        int[] frontOfArray = Arrays.stream(nums).filter(num -> num != val)
+                        .toArray();
+        System.arraycopy(frontOfArray, 0, nums, 0, frontOfArray.length);
+        return frontOfArray.length;
     }
 }
