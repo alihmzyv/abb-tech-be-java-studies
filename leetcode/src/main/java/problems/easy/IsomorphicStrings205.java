@@ -10,7 +10,7 @@ public class IsomorphicStrings205 {
                 .noneMatch(i -> { //to short-circuit
                     Character found = isoMap.get(s.charAt(i));
                     if (found == null) { //no key matching
-                        if (!isoMap.values().contains(t.charAt(i))) { //put and continue only if value not in map
+                        if (!isoMap.containsValue(t.charAt(i))) { //put and continue only if value not in map
                             isoMap.put(s.charAt(i), t.charAt(i));
                             return false;
                         }
