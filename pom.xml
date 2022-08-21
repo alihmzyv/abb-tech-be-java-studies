@@ -12,6 +12,7 @@
         <module>july</module>
         <module>leetcode</module>
         <module>august</module>
+        <module>hackerrank</module>
     </modules>
 
     <dependencies>

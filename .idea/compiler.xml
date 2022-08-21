@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="august" />
         <module name="july" />
         <module name="leetcode" />
+        <module name="hackerrank" />
+        <module name="august" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="18" />
