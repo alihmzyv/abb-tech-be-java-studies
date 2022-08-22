@@ -16,6 +16,7 @@ class UglyNumber263Test {
     @Test
     void isUglyTest2() {
         assertTrue(sample.isUgly(1));
+
     }
 
     @Test

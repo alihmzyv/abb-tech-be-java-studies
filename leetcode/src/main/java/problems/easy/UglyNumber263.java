@@ -5,6 +5,7 @@ import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
 public class UglyNumber263 {
+    //time limit test
     public boolean isUgly(int n) {
         if (n <= 0) {
             return false;
