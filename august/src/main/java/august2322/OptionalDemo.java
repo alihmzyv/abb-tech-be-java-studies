@@ -59,7 +59,6 @@ public class OptionalDemo {
                 .flatMap(USB::getVersion)
                 .orElse("default");
         System.out.println(versionOrDefault);
-        stringOptional2.or()
     }
 }
 
