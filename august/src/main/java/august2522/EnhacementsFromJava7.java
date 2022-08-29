@@ -44,4 +44,5 @@ public class EnhacementsFromJava7 {
 //            System.out.println(exc);
 //        }
     }
+
 }
