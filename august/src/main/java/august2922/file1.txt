@@ -1,3 +1,31 @@
-text1
-text2
-text3
+100
+dbc
+Text1
+1
+dbc
+Text1
+Student{id=1, name='Mammad', surname='Mammadov'}
+100
+dbc
+Text1
+1
+dbc
+[Laugust2922.Student;@5fd0d5ae
+Text1
+Student{id=1, name='Mammad', surname='Mammadov'}
+100
+dbc
+Text1
+1
+dbc
+[Laugust2922.Student;@5fd0d5ae
+Text1
+Student{id=1, name='Mammad', surname='Mammadov'}
+100
+dbc
+Text1
+1
+dbc
+[Student{id=2, name='Hasan', surname='Hasanov'}]
+Text1
+Student{id=1, name='Mammad', surname='Mammadov'}

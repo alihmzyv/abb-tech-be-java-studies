@@ -34,8 +34,6 @@ public class FileReaderDemo {
 //                .forEach(ch -> sb.append(ch));
 ////        System.out.println(sb);
 //
-//        //ready()
-//        System.out.println(fileReader1.ready());
 //
 //        //.read(char[] ch)
 //        char[] chars = new char[10];
