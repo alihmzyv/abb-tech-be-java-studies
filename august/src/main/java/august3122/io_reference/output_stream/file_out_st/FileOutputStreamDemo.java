@@ -1,4 +1,4 @@
-package august3122.io_reference.output_stream;
+package august3122.io_reference.output_stream.file_out_st;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,17 +33,21 @@ public class FileOutputStreamDemo {
 //        FileOutputStream fileOutputStream4 = new FileOutputStream("august/src/main/java/august3122/io_reference/FileOutputStreamDemo2.java", false);
 
 
+        // * methods
         try (FileOutputStream fileOutputStream1 = new FileOutputStream("august/src/main/java/august3122/io_reference/file1.txt");
              FileOutputStream fileOutputStream2 = new FileOutputStream("august/src/main/java/august3122/io_reference/file2.txt");
              FileOutputStream fileOutputStream3 = new FileOutputStream("august/src/main/java/august3122/io_reference/file3.txt")) {
             String str = "Witpevze mappos isoletu fo res bi geow pofin mu rupoho revzi utva ne.";
             byte[] bytes = str.getBytes();
             int count = 0;
+
+            //write(int byte)
             while (count < bytes.length) {
                 fileOutputStream1.write(bytes[count]);
                 count += 2;
             }
 
+            //write(byte[] arr)
             fileOutputStream2.write(bytes);
 
             fileOutputStream3.write(Arrays.copyOfRange(bytes, bytes.length - (bytes.length / 4), bytes.length));

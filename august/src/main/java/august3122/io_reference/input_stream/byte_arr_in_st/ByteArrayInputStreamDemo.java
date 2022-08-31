@@ -15,7 +15,9 @@ public class ByteArrayInputStreamDemo {
         //#2
         ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(bytes, 10, bytes.length - 10);
 
-        //mark and reset
+        // * methods
+        //read methods just as FileInputStream
+        //mark and reset - supported
         byte[] bytesRead = byteArrayInputStream1.readAllBytes();
         System.out.println(new String(bytesRead, 0, bytesRead.length));
         byteArrayInputStream1.reset();
