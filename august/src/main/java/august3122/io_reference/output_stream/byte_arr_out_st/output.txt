@@ -1,0 +1,2 @@
+BufferedOutputStream says Hello !
+BufferedOutputStream says Hello x2!
