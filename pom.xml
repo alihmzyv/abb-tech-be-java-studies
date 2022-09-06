@@ -13,6 +13,7 @@
         <module>leetcode</module>
         <module>august</module>
         <module>hackerrank</module>
+        <module>codewars</module>
     </modules>
 
     <dependencies>
