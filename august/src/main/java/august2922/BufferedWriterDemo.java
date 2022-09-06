@@ -16,7 +16,7 @@ public class BufferedWriterDemo {
 
         //#1
         BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter(file1));
-
+        InputStreamReader
 
         // * methods
         // * FileWriter methods
