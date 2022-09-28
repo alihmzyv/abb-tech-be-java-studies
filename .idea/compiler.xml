@@ -11,6 +11,7 @@
         <module name="leetcode" />
         <module name="hackerrank" />
         <module name="codewars" />
+        <module name="september" />
         <module name="august" />
       </profile>
     </annotationProcessing>
