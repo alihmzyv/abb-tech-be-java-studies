@@ -15,6 +15,7 @@
         <module>hackerrank</module>
         <module>codewars</module>
         <module>september</module>
+        <module>october</module>
     </modules>
 
     <dependencies>
